@@ -5,6 +5,8 @@ app_name='restApp'
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('studentList/', views.student_list, name="student_list"),
+    path('studentList/', views.studentList, name="studentList"),
     path('studentList/<int:pk>', views.getStudent, name="getStudent"),
+
+    path('createStudent/', views.createStudent, name="createStudent"),
 ]
