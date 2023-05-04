@@ -33,3 +33,10 @@ def createStudent(request):
         json_data = request.body
         stream = io.BytesIO(json_data)
         pythonData = JSONParser().parse(stream)
+        serializer = StudentSerializer(data=pythonData)
+
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'msg': 'Student Data Added'})
+
+        return JsonResponse(serializer.errors)
